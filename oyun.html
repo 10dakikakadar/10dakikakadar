@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Günlük Kelime Maratonu</title>
+    <style>
+        /* --- RENKLER VE TEMALAR --- */
+        :root {
+            --bg-color: #fff4d6;
+            --grid-color: rgba(115, 17, 63, 0.15); 
+            --main-text: #73113f;
+            --tile-bg: rgba(255, 255, 255, 0.9);
+            --tile-border: #73113f; 
+            --tile-text: #73113f;
+            --button-bg: #9551b0;
+            --button-text: #fff4d6;
+            --key-bg: #e5d1a4; 
+            --key-text: #73113f;
+            --absent-color: #73113f; 
+        }
+
+        body.dark-mode {
+            --bg-color: #1a1510;
+            --grid-color: rgba(255, 255, 255, 0.08); 
+            --main-text: #e09f9f;
+            --tile-bg: #2d261f;
+            --tile-border: #73113f;
+            --tile-text: #fff4d6;
+            --button-bg: #6b3a7e;
+            --button-text: #fff4d6;
+            --key-bg: #3a2e24;
+            --key-text: #e09f9f;
+            --absent-color: #73113f; 
+        }
+
+        body { 
+            background-color: var(--bg-color); 
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 25px 25px; 
+            background-attachment: fixed;
+            font-family: 'Cooper BT', 'Cooper Black', Georgia, serif; 
+            display: flex; flex-direction: column; align-items: center; 
+            color: var(--main-text); margin: 0; padding-top: 40px; padding-bottom: 30px;
+            transition: color 0.4s ease, background-color 0.4s ease;
+        }
+
+        input, button, .key {
+            font-family: 'Cooper BT', 'Cooper Black', Georgia, serif;
+        }
+
+        #theme-toggle {
+            position: absolute; top: 15px; right: 15px;
+            background: rgba(255, 255, 255, 0.7); border: 2px solid var(--main-text);
+            color: var(--main-text); padding: 6px 12px;
+            border-radius: 20px; cursor: pointer; font-weight: bold; z-index: 1100;
+            transition: all 0.3s ease;
+        }
+        body.dark-mode #theme-toggle { background: rgba(0, 0, 0, 0.5); }
+
+        #welcome-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bg-color);
+            background-image: inherit; 
+            z-index: 1000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 20px;
+        }
+        
+        #welcome-content { 
+            max-width: 500px; line-height: 1.6; 
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px; border-radius: 15px; border: 2px solid var(--main-text);
+        }
+        body.dark-mode #welcome-content { background: rgba(45, 38, 31, 0.95); }
+
+        #level-display { font-size: 24px; font-weight: bold; margin-bottom: 15px; }
+        
+        #board { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+        .row { display: grid; gap: 8px; justify-content: center; }
+
+        .tile { 
+            width: 50px; height: 50px; 
+            border: 2px solid var(--tile-border); 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 26px; font-weight: bold; text-transform: uppercase; 
+            background-color: var(--tile-bg); color: var(--tile-text);
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        .shake { animation: shake 0.4s; }
+
+        .correct { background-color: #799659 !important; border-color: #799659 !important; color: #fff4d6 !important; } 
+        .present { background-color: #fcdc3a !important; border-color: #fcdc3a !important; color: #73113f !important; } 
+        .absent { background-color: var(--absent-color) !important; border-color: var(--abs
