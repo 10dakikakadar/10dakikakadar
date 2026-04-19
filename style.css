@@ -1,100 +1,98 @@
-/* Minimalist & Dark Tema */
+/* 10 DAKİKA KADAR - MARKA KİMLİĞİ CSS */
+:root {
+    --defter-zemin: #f4e7d4; /* Görseldeki bej tonu */
+    --cizgi-rengi: rgba(115, 17, 63, 0.08); /* Kareli defter çizgileri */
+    --bordo: #73113f; /* "biz kimiz?" yazısındaki ana bordo */
+    --mavi: #1d5b79; /* Ok ve ikonlardaki koyu mavi */
+    --metin: #222;
+}
+
 body {
-    background-color: #0a0a0a;
-    color: #e0e0e0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--defter-zemin);
+    /* KARELİ DEFTER DOKUSU */
+    background-image: 
+        linear-gradient(var(--cizgi-rengi) 1px, transparent 1px),
+        linear-gradient(90deg, var(--cizgi-rengi) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-attachment: fixed;
+    
+    color: var(--metin);
+    font-family: 'Courier New', Courier, monospace; /* Daktilo efekti için */
     margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    line-height: 1.6;
+    padding: 40px 20px;
 }
 
-header {
-    margin-top: 80px;
-    text-align: center;
-}
-
-h1 {
-    font-weight: 200;
-    letter-spacing: 8px;
-    font-size: 2.5rem;
+header h1 {
+    font-family: 'Georgia', serif; /* "biz kimiz?" fontuna benzer serif yapı */
+    color: var(--bordo);
+    font-size: 3.5rem;
+    font-weight: normal;
     margin-bottom: 0;
+    letter-spacing: -1px;
 }
 
 .subtitle {
-    font-weight: 300;
-    color: #666;
-    letter-spacing: 2px;
+    font-size: 1rem;
+    color: var(--mavi);
+    margin-top: 5px;
+    text-transform: lowercase;
 }
 
 main {
-    width: 90%;
-    max-width: 600px;
-    margin-top: 50px;
-}
-
-.links-section {
-    margin-bottom: 40px;
+    width: 100%;
+    max-width: 650px;
+    margin-top: 60px;
 }
 
 h2 {
-    font-size: 0.9rem;
-    letter-spacing: 3px;
-    color: #444;
-    border-bottom: 1px solid #222;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: var(--bordo);
+    border-bottom: 2px solid var(--bordo);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
 }
 
 .link-card {
-    display: block;
-    background: #111;
-    border: 1px solid #222;
-    padding: 15px;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white; /* Not kağıdı efekti */
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 15px;
     text-decoration: none;
-    color: #fff;
-    text-align: center;
+    color: var(--metin);
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.05); /* Kağıt derinliği */
     transition: 0.3s ease;
-    border-radius: 4px;
 }
 
 .link-card:hover {
-    background: #fff;
-    color: #000;
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0px var(--mavi);
+    color: var(--mavi);
 }
 
-.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+.link-card i {
+    font-size: 1.5rem;
+    color: var(--mavi);
 }
 
-.podcast-grid, .social-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.main-acc, .game-link {
-    grid-column: span 2;
-    border-color: #333;
+.arrow {
+    color: var(--mavi);
+    font-size: 1.5rem;
 }
 
 footer {
-    margin: 50px 0;
-    font-size: 0.7rem;
-    color: #333;
+    margin-top: 100px;
+    color: #999;
+    font-size: 0.8rem;
 }
 
-/* Mobil uyum */
+/* MOBİL AYAR */
 @media (max-width: 480px) {
-    .podcast-grid, .social-grid {
-        grid-template-columns: 1fr;
-    }
-    .main-acc, .game-link {
-        grid-column: span 1;
-    }
+    header h1 { font-size: 2.5rem; }
 }
