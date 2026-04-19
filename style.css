@@ -1,98 +1,118 @@
-/* 10 DAKİKA KADAR - MARKA KİMLİĞİ CSS */
+/* 10 DAKİKA KADAR - GÜNCEL TASARIM */
 :root {
-    --defter-zemin: #f4e7d4; /* Görseldeki bej tonu */
-    --cizgi-rengi: rgba(115, 17, 63, 0.08); /* Kareli defter çizgileri */
-    --bordo: #73113f; /* "biz kimiz?" yazısındaki ana bordo */
-    --mavi: #1d5b79; /* Ok ve ikonlardaki koyu mavi */
-    --metin: #222;
+    --defter-zemin: #f4e7d4;
+    --cizgi-rengi: rgba(115, 17, 63, 0.08);
+    --bordo: #73113f;
+    --mavi: #1d5b79;
+    --metin: #333;
 }
 
 body {
     background-color: var(--defter-zemin);
-    /* KARELİ DEFTER DOKUSU */
     background-image: 
         linear-gradient(var(--cizgi-rengi) 1px, transparent 1px),
         linear-gradient(90deg, var(--cizgi-rengi) 1px, transparent 1px);
-    background-size: 30px 30px;
+    background-size: 25px 25px;
     background-attachment: fixed;
-    
     color: var(--metin);
-    font-family: 'Courier New', Courier, monospace; /* Daktilo efekti için */
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
 }
 
-header h1 {
-    font-family: 'Georgia', serif; /* "biz kimiz?" fontuna benzer serif yapı */
+/* ÖZEL BAŞLIK TASARIMI */
+.main-title {
+    margin: 0;
+    line-height: 1;
+}
+
+.number {
+    font-family: 'Anton', sans-serif;
+    font-size: 6rem;
     color: var(--bordo);
-    font-size: 3.5rem;
+    display: block;
+    margin-bottom: -15px;
+}
+
+.text {
+    font-family: 'Indie Flower', cursive; /* Linotype Feltpen alternatifi */
+    font-size: 2.5rem;
+    color: var(--bordo);
     font-weight: normal;
-    margin-bottom: 0;
-    letter-spacing: -1px;
 }
 
 .subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--mavi);
-    margin-top: 5px;
-    text-transform: lowercase;
+    margin-top: 15px;
+    letter-spacing: 2px;
 }
 
 main {
     width: 100%;
-    max-width: 650px;
-    margin-top: 60px;
+    max-width: 500px;
+    margin-top: 50px;
 }
 
 h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--bordo);
-    border-bottom: 2px solid var(--bordo);
-    display: inline-block;
+    border-bottom: 1px solid var(--bordo);
     padding-bottom: 5px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    text-transform: lowercase;
 }
 
-.link-card {
+/* YENİ SOSYAL MEDYA DİLİ (MİNİMAL LİSTE) */
+.minimal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.minimal-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: white; /* Not kağıdı efekti */
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 15px;
+    padding: 12px 0;
     text-decoration: none;
     color: var(--metin);
-    box-shadow: 5px 5px 0px rgba(0,0,0,0.05); /* Kağıt derinliği */
-    transition: 0.3s ease;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+    transition: 0.2s ease;
 }
 
-.link-card:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 8px 8px 0px var(--mavi);
+.minimal-item i {
+    width: 30px;
+    font-size: 1.2rem;
     color: var(--mavi);
 }
 
-.link-card i {
-    font-size: 1.5rem;
-    color: var(--mavi);
+.minimal-item span {
+    font-size: 1.1rem;
 }
 
-.arrow {
+.minimal-item:hover {
+    color: var(--bordo);
+    padding-left: 10px;
+    border-bottom: 1px solid var(--bordo);
+}
+
+.highlight {
+    margin-top: 15px;
+    font-weight: bold;
     color: var(--mavi);
-    font-size: 1.5rem;
 }
 
 footer {
-    margin-top: 100px;
+    margin-top: 80px;
+    font-size: 0.7rem;
     color: #999;
-    font-size: 0.8rem;
 }
 
-/* MOBİL AYAR */
+/* Mobil için boyut ayarı */
 @media (max-width: 480px) {
-    header h1 { font-size: 2.5rem; }
+    .number { font-size: 4.5rem; }
+    .text { font-size: 2rem; }
 }
