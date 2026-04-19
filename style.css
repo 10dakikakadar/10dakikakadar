@@ -1,4 +1,4 @@
-/* 10 DAKİKA KADAR - GÜNCEL TASARIM */
+/* 10 DAKİKA KADAR - UNIFIED STYLE */
 :root {
     --defter-zemin: #f4e7d4;
     --cizgi-rengi: rgba(115, 17, 63, 0.08);
@@ -20,99 +20,47 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 60px 20px;
+    padding: 20px;
 }
 
-/* ÖZEL BAŞLIK TASARIMI */
-.main-title {
-    margin: 0;
-    line-height: 1;
-}
-
-.number {
-    font-family: 'Anton', sans-serif;
-    font-size: 6rem;
-    color: var(--bordo);
-    display: block;
-    margin-bottom: -15px;
-}
-
-.text {
-    font-family: 'Indie Flower', cursive; /* Linotype Feltpen alternatifi */
-    font-size: 2.5rem;
-    color: var(--bordo);
-    font-weight: normal;
-}
-
-.subtitle {
-    font-size: 0.9rem;
-    color: var(--mavi);
-    margin-top: 15px;
-    letter-spacing: 2px;
-}
-
-main {
-    width: 100%;
-    max-width: 500px;
-    margin-top: 50px;
-}
-
-h2 {
-    font-size: 1rem;
-    color: var(--bordo);
+/* NAVIGASYON */
+nav {
+    margin-bottom: 40px;
     border-bottom: 1px solid var(--bordo);
-    padding-bottom: 5px;
-    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--mavi);
+    margin: 0 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
     text-transform: lowercase;
 }
 
-/* YENİ SOSYAL MEDYA DİLİ (MİNİMAL LİSTE) */
-.minimal-list {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
+nav a:hover { color: var(--bordo); }
 
-.minimal-item {
-    display: flex;
-    align-items: center;
-    padding: 12px 0;
-    text-decoration: none;
-    color: var(--metin);
-    border-bottom: 1px dashed rgba(0,0,0,0.1);
-    transition: 0.2s ease;
-}
+/* BAŞLIK */
+.main-title { text-align: center; margin-bottom: 40px; }
+.number { font-family: 'Anton', sans-serif; font-size: 6rem; color: var(--bordo); display: block; line-height: 0.8; }
+.text { font-family: 'Georgia', serif; font-size: 2.2rem; color: var(--bordo); font-style: italic; }
 
-.minimal-item i {
-    width: 30px;
-    font-size: 1.2rem;
-    color: var(--mavi);
-}
+/* IÇERIK ALANI */
+main { width: 100%; max-width: 600px; }
+h2 { font-size: 1.1rem; color: var(--bordo); border-bottom: 1px solid var(--bordo); padding-bottom: 5px; margin-bottom: 20px; }
 
-.minimal-item span {
-    font-size: 1.1rem;
-}
+/* SOSYAL MEDYA LISTESI */
+.minimal-list { display: flex; flex-direction: column; gap: 5px; }
+.minimal-item { display: flex; align-items: center; padding: 12px 0; text-decoration: none; color: var(--metin); border-bottom: 1px dashed rgba(0,0,0,0.1); transition: 0.2s; }
+.minimal-item i { width: 30px; font-size: 1.2rem; color: var(--mavi); }
+.minimal-item:hover { color: var(--bordo); padding-left: 10px; }
 
-.minimal-item:hover {
-    color: var(--bordo);
-    padding-left: 10px;
-    border-bottom: 1px solid var(--bordo);
-}
+/* BÖLÜMLER SAYFASI ÖZEL */
+.episode-card { background: white; border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; display: flex; gap: 15px; box-shadow: 4px 4px 0px var(--cizgi-rengi); }
+.episode-img { width: 100px; height: 100px; background: #eee; flex-shrink: 0; border: 1px solid #eee; }
+.episode-info h3 { margin: 0 0 5px 0; color: var(--bordo); font-size: 1.1rem; }
+.episode-info p { margin: 0; font-size: 0.85rem; color: #666; line-height: 1.4; }
+.spotify-btn { display: inline-block; margin-top: 10px; color: #1DB954; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
 
-.highlight {
-    margin-top: 15px;
-    font-weight: bold;
-    color: var(--mavi);
-}
-
-footer {
-    margin-top: 80px;
-    font-size: 0.7rem;
-    color: #999;
-}
-
-/* Mobil için boyut ayarı */
-@media (max-width: 480px) {
-    .number { font-size: 4.5rem; }
-    .text { font-size: 2rem; }
-}
+footer { margin-top: 60px; font-size: 0.7rem; color: #999; }
