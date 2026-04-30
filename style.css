@@ -1,4 +1,4 @@
-/* 10 DAKİKA KADAR - UNIFIED STYLE */
+/* --- TEMEL AYARLAR & MARKA RENKLERİ --- */
 :root {
     --defter-zemin: #f4e7d4;
     --cizgi-rengi: rgba(115, 17, 63, 0.08);
@@ -19,209 +19,172 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    min-height: 100vh; /* Sayfayı tam ekran yüksekliğine yayar */
 }
 
-/* NAVIGASYON */
+/* --- NAVİGASYON (ÜST MENÜ) --- */
 nav {
-    margin-bottom: 40px;
-    border-bottom: 1px solid var(--bordo);
-    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 25px 20px;
+    background: rgba(244, 231, 212, 0.8); /* Cam efekti */
+    backdrop-filter: blur(5px);
+    border-bottom: 1px dashed rgba(115, 17, 63, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
     text-decoration: none;
     color: var(--mavi);
-    margin: 0 15px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: bold;
     text-transform: lowercase;
+    transition: 0.3s;
 }
 
-nav a:hover { color: var(--bordo); }
-
-/* BAŞLIK */
-.main-title { text-align: center; margin-bottom: 40px; }
-.number { font-family: 'Anton', sans-serif; font-size: 6rem; color: var(--bordo); display: block; line-height: 0.8; }
-.text { font-family: 'Georgia', serif; font-size: 2.2rem; color: var(--bordo); font-style: italic; }
-
-/* IÇERIK ALANI */
-main { width: 100%; max-width: 600px; }
-h2 { font-size: 1.1rem; color: var(--bordo); border-bottom: 1px solid var(--bordo); padding-bottom: 5px; margin-bottom: 20px; }
-
-/* SOSYAL MEDYA LISTESI */
-.minimal-list { display: flex; flex-direction: column; gap: 5px; }
-.minimal-item { display: flex; align-items: center; padding: 12px 0; text-decoration: none; color: var(--metin); border-bottom: 1px dashed rgba(0,0,0,0.1); transition: 0.2s; }
-.minimal-item i { width: 30px; font-size: 1.2rem; color: var(--mavi); }
-.minimal-item:hover { color: var(--bordo); padding-left: 10px; }
-
-/* BÖLÜMLER SAYFASI ÖZEL */
-.episode-card { background: white; border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; display: flex; gap: 15px; box-shadow: 4px 4px 0px var(--cizgi-rengi); }
-.episode-img { width: 100px; height: 100px; background: #eee; flex-shrink: 0; border: 1px solid #eee; }
-.episode-info h3 { margin: 0 0 5px 0; color: var(--bordo); font-size: 1.1rem; }
-.episode-info p { margin: 0; font-size: 0.85rem; color: #666; line-height: 1.4; }
-.spotify-btn { display: inline-block; margin-top: 10px; color: #1DB954; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
-
-footer { margin-top: 60px; font-size: 0.7rem; color: #999; }
-
-/* INSTAGRAM PROFIL TASARIMI */
-.profile-container {
-    background: white;
-    border: 1px solid #dbdbdb;
-    border-radius: 8px;
-    padding: 30px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+nav a:hover {
+    color: var(--bordo);
 }
 
-.profile-header {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 30px;
-}
-
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: #fafafa;
-    border: 1px solid #dbdbdb;
-    flex-shrink: 0;
-}
-
-.profile-info h3 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 1.8rem;
-    font-weight: 300;
-    margin: 0 0 15px 0;
-}
-
-.stats {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 15px;
-    font-size: 1rem;
-}
-
-.stats b { font-weight: 600; }
-
-.bio {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    font-family: -apple-system, sans-serif;
-}
-
-.bio .name { font-weight: 600; display: block; margin-bottom: 2px; }
-
-/* POST GRID (SON 3 POST) */
-.post-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    border-top: 1px solid #dbdbdb;
-    padding-top: 20px;
-}
-
-.post-item {
-    aspect-ratio: 1 / 1;
-    background: #f0f0f0;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-@media (max-width: 480px) {
-    .profile-header { flex-direction: column; gap: 20px; align-items: center; text-align: center; }
-    .stats { justify-content: center; }
-}
-/* --- YENİ ANA SAYFA DÜZENİ --- */
-
-/* Yüzen Sosyal Medya İkonları (Sol Kenar) */
+/* --- YÜZEN SOSYAL MEDYA İKONLARI (Tıklama Sorunu Çözüldü) --- */
 .floating-socials {
     position: fixed;
-    left: 40px;
+    left: 30px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    z-index: 100;
+    gap: 15px;
+    z-index: 500; /* Diğer her şeyin üstünde kalmasını sağlar */
 }
 
 .floating-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
     color: var(--mavi);
-    font-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.6); /* Arka planı biraz belirginleştirdik */
+    border-radius: 50%;
+    font-size: 1.5rem;
     text-decoration: none;
-    transition: 0.3s ease;
-    opacity: 0.6;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
 }
 
 .floating-socials a:hover {
-    color: var(--bordo);
-    transform: scale(1.3) translateX(5px);
-    opacity: 1;
+    color: #fff;
+    background: var(--bordo);
+    transform: scale(1.15) translateX(5px);
+    box-shadow: 4px 4px 10px rgba(115, 17, 63, 0.2);
 }
 
-/* Genişletilmiş Ana Alan */
-.wide-main {
-    max-width: 1200px;
-    width: 100%;
+/* --- ANA İÇERİK ALANI (Merkezlenmiş Düzen) --- */
+main {
+    flex: 1; /* Üst menü ve alt bilgi arasındaki tüm boşluğu doldurur */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 40vh;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Başlık */
+.main-title {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.number {
+    font-family: 'Anton', sans-serif;
+    font-size: 8rem;
+    color: var(--bordo);
+    line-height: 0.8;
+    margin-bottom: -10px;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.05);
+}
+
+.text {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;
+    color: var(--bordo);
+    font-style: italic;
+    letter-spacing: 2px;
 }
 
 /* Oyun Butonu (CTA) */
 .game-cta-container {
-    margin-top: 50px;
     text-align: center;
+    margin-top: 20px;
 }
 
 .cta-text {
-    font-family: 'Courier New', Courier, monospace;
-    color: #888;
+    color: #777;
     margin-bottom: 15px;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 0.95rem;
+    font-style: italic;
 }
 
 .game-cta {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.1rem;
     font-weight: bold;
-    color: var(--bordo);
+    color: var(--defter-zemin);
+    background: var(--bordo);
     text-decoration: none;
     padding: 15px 35px;
-    border: 2px dashed var(--bordo);
-    border-radius: 5px; /* Defter etiketi görünümü */
-    transition: 0.3s;
-    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px var(--mavi); /* 3 Boyutlu retro etki */
+    transition: all 0.3s ease;
 }
 
 .game-cta:hover {
-    background: var(--bordo);
-    color: #fff;
-    border-style: solid;
-    transform: translateY(-3px);
-    box-shadow: 4px 4px 0px rgba(115, 17, 63, 0.2);
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0px var(--mavi);
+    background: #8a144b;
 }
 
-/* Mobil Cihazlar İçin Uyumluluk */
+/* --- ALT BİLGİ --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* --- MOBİL UYUM --- */
 @media (max-width: 768px) {
     .floating-socials {
         position: static;
         flex-direction: row;
         justify-content: center;
+        flex-wrap: wrap;
         transform: none;
-        margin-top: 20px;
-        margin-bottom: 50px;
-        gap: 30px;
+        margin: 30px 0;
     }
     
     .floating-socials a:hover {
-        transform: scale(1.3) translateY(-5px);
+        transform: scale(1.1) translateY(-5px);
+    }
+    
+    .number { font-size: 6rem; }
+    .text { font-size: 2rem; }
+    
+    nav {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 15px;
     }
 }
