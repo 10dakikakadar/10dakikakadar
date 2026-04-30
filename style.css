@@ -134,3 +134,94 @@ footer { margin-top: 60px; font-size: 0.7rem; color: #999; }
     .profile-header { flex-direction: column; gap: 20px; align-items: center; text-align: center; }
     .stats { justify-content: center; }
 }
+/* --- YENİ ANA SAYFA DÜZENİ --- */
+
+/* Yüzen Sosyal Medya İkonları (Sol Kenar) */
+.floating-socials {
+    position: fixed;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    z-index: 100;
+}
+
+.floating-socials a {
+    color: var(--mavi);
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: 0.3s ease;
+    opacity: 0.6;
+}
+
+.floating-socials a:hover {
+    color: var(--bordo);
+    transform: scale(1.3) translateX(5px);
+    opacity: 1;
+}
+
+/* Genişletilmiş Ana Alan */
+.wide-main {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 40vh;
+}
+
+/* Oyun Butonu (CTA) */
+.game-cta-container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.cta-text {
+    font-family: 'Courier New', Courier, monospace;
+    color: #888;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.game-cta {
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--bordo);
+    text-decoration: none;
+    padding: 15px 35px;
+    border: 2px dashed var(--bordo);
+    border-radius: 5px; /* Defter etiketi görünümü */
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.game-cta:hover {
+    background: var(--bordo);
+    color: #fff;
+    border-style: solid;
+    transform: translateY(-3px);
+    box-shadow: 4px 4px 0px rgba(115, 17, 63, 0.2);
+}
+
+/* Mobil Cihazlar İçin Uyumluluk */
+@media (max-width: 768px) {
+    .floating-socials {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        transform: none;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        gap: 30px;
+    }
+    
+    .floating-socials a:hover {
+        transform: scale(1.3) translateY(-5px);
+    }
+}
