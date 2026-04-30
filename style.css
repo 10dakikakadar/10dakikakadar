@@ -1,4 +1,4 @@
-/* --- TEMEL AYARLAR & MARKA RENKLERİ --- */
+/* --- MARKA KİMLİĞİ & TEMEL AYARLAR --- */
 :root {
     --defter-zemin: #f4e7d4;
     --cizgi-rengi: rgba(115, 17, 63, 0.08);
@@ -19,172 +19,127 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Sayfayı tam ekran yüksekliğine yayar */
+    min-height: 100vh;
 }
 
-/* --- NAVİGASYON (ÜST MENÜ) --- */
+/* --- NAVİGASYON --- */
 nav {
     display: flex;
     justify-content: center;
     gap: 30px;
     padding: 25px 20px;
-    background: rgba(244, 231, 212, 0.8); /* Cam efekti */
-    backdrop-filter: blur(5px);
-    border-bottom: 1px dashed rgba(115, 17, 63, 0.3);
-    position: sticky;
-    top: 0;
     z-index: 1000;
 }
 
 nav a {
     text-decoration: none;
     color: var(--mavi);
-    font-size: 1rem;
     font-weight: bold;
     text-transform: lowercase;
     transition: 0.3s;
 }
 
-nav a:hover {
-    color: var(--bordo);
+nav a:hover { color: var(--bordo); }
+
+/* --- LOGO VE BAŞLIK --- */
+.main-title {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
 }
 
-/* --- YÜZEN SOSYAL MEDYA İKONLARI (Tıklama Sorunu Çözüldü) --- */
+.site-logo {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    filter: drop-shadow(4px 4px 10px rgba(0,0,0,0.08));
+    transition: transform 0.3s ease;
+}
+
+.site-logo:hover { transform: scale(1.05); }
+
+/* --- SOSYAL MEDYA İKONLARI (SOL KENAR) --- */
 .floating-socials {
     position: fixed;
-    left: 30px;
+    left: 25px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 15px;
-    z-index: 500; /* Diğer her şeyin üstünde kalmasını sağlar */
+    z-index: 500;
 }
 
 .floating-socials a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     color: var(--mavi);
-    background: rgba(255, 255, 255, 0.6); /* Arka planı biraz belirginleştirdik */
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     text-decoration: none;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
 }
 
 .floating-socials a:hover {
     color: #fff;
     background: var(--bordo);
-    transform: scale(1.15) translateX(5px);
-    box-shadow: 4px 4px 10px rgba(115, 17, 63, 0.2);
+    transform: scale(1.1) translateX(5px);
 }
 
-/* --- ANA İÇERİK ALANI (Merkezlenmiş Düzen) --- */
-main {
-    flex: 1; /* Üst menü ve alt bilgi arasındaki tüm boşluğu doldurur */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-    z-index: 10;
-}
-
-/* Başlık */
-.main-title {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.number {
-    font-family: 'Anton', sans-serif;
-    font-size: 8rem;
-    color: var(--bordo);
-    line-height: 0.8;
-    margin-bottom: -10px;
-    text-shadow: 3px 3px 0px rgba(0,0,0,0.05);
-}
-
-.text {
-    font-family: 'Georgia', serif;
-    font-size: 2.5rem;
-    color: var(--bordo);
-    font-style: italic;
-    letter-spacing: 2px;
-}
-
-/* Oyun Butonu (CTA) */
-.game-cta-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.cta-text {
-    color: #777;
-    margin-bottom: 15px;
-    font-size: 0.95rem;
-    font-style: italic;
-}
-
+/* --- ANA SAYFA OYUN BUTONU --- */
+.game-cta-container { text-align: center; margin-top: 30px; }
+.cta-text { color: #888; font-size: 0.9rem; font-style: italic; margin-bottom: 15px; }
 .game-cta {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: var(--defter-zemin);
     background: var(--bordo);
-    text-decoration: none;
-    padding: 15px 35px;
+    color: var(--defter-zemin);
+    padding: 15px 30px;
     border-radius: 8px;
-    box-shadow: 4px 4px 0px var(--mavi); /* 3 Boyutlu retro etki */
-    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 4px 4px 0px var(--mavi);
+    transition: 0.3s;
 }
+.game-cta:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--mavi); }
 
-.game-cta:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0px var(--mavi);
-    background: #8a144b;
-}
-
-/* --- ALT BİLGİ --- */
-footer {
-    text-align: center;
+/* --- BÖLÜMLER SAYFASI --- */
+.episode-card {
+    background: white;
+    border: 1px solid #ddd;
     padding: 20px;
-    font-size: 0.8rem;
-    color: #999;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 5px 5px 0px var(--cizgi-rengi);
 }
+.episode-img { width: 120px; height: 120px; background: #eee; flex-shrink: 0; }
+.episode-info h3 { margin: 0 0 10px 0; color: var(--bordo); }
+.spotify-btn { color: #1DB954; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-/* --- MOBİL UYUM --- */
+/* --- KARAKTERLER SPLIT LAYOUT --- */
+.split-layout { display: flex; width: 90%; max-width: 1100px; margin: 40px auto; gap: 50px; }
+.character-half { flex: 1; text-align: center; }
+.char-portrait { width: 100%; max-width: 300px; margin-bottom: 20px; }
+.traits-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.trait {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    padding: 5px 12px;
+    border: 1px dashed;
+    border-radius: 15px;
+}
+.misra-side .trait { border-color: var(--bordo); color: var(--bordo); }
+.tolga-side .trait { border-color: var(--mavi); color: var(--mavi); }
+
+footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #999; }
+
 @media (max-width: 768px) {
-    .floating-socials {
-        position: static;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        transform: none;
-        margin: 30px 0;
-    }
-    
-    .floating-socials a:hover {
-        transform: scale(1.1) translateY(-5px);
-    }
-    
-    .number { font-size: 6rem; }
-    .text { font-size: 2rem; }
-    
-    nav {
-        flex-wrap: wrap;
-        gap: 15px;
-        padding: 15px;
-    }
+    .floating-socials { position: static; flex-direction: row; justify-content: center; transform: none; margin: 20px 0; }
+    .split-layout { flex-direction: column; }
 }
